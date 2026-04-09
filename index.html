@@ -8,9 +8,9 @@
         :root {
             --primary: #0056b3;
             --secondary: #00a8e8;
-            --accent: #ffcc00;
             --white: #ffffff;
             --bg: #f4f7f6;
+            --dark: #2c3e50;
         }
 
         body {
@@ -19,30 +19,20 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            color: var(--dark);
         }
 
         header {
-            background: linear-gradient(rgba(0,86,179,0.9), rgba(0,86,179,0.9)), url('https://via.placeholder.com/1200x400');
+            background: linear-gradient(rgba(0,86,179,0.95), rgba(0,86,179,0.95));
             color: white;
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
             border-bottom: 5px solid var(--secondary);
         }
 
-        .promo-banner {
-            background: var(--accent);
-            color: #333;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-top: 15px;
-            border-radius: 5px;
-        }
-
         .container {
-            max-width: 900px;
-            margin: 30px auto;
+            max-width: 850px;
+            margin: 20px auto;
             padding: 0 15px;
         }
 
@@ -57,52 +47,35 @@
         h2 { 
             color: var(--primary); 
             border-right: 5px solid var(--secondary); 
-            padding-right: 15px; 
+            padding-right: 15px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #eee;
-        }
-
-        .price-name { font-weight: bold; font-size: 1.1rem; }
-        .price-value { color: var(--primary); font-weight: 900; font-size: 1.2rem; }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .feature-box {
-            background: #eef9ff;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            border: 1px solid #d0e8f2;
         }
 
         .booking-form input, .booking-form select {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+            border: 1px solid #d1d9e6;
+            border-radius: 10px;
             box-sizing: border-box;
+            font-size: 16px;
         }
 
         .btn-confirm {
             background: #28a745;
             color: white;
             border: none;
-            padding: 15px;
+            padding: 16px;
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
@@ -118,12 +91,41 @@
             border-radius: 15px;
             padding: 30px;
             text-align: center;
-            margin-top: 20px;
-            position: relative;
+            margin-top: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
+        .queue-number {
+            font-size: 60px;
+            font-weight: 900;
+            color: var(--primary);
+            margin: 5px 0;
+            display: block;
+        }
+
+        .doctor-info {
+            background: #e9f2fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 40px;
+            border: 1px solid #cfe2f3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .info-box {
+            font-size: 0.95rem;
+        }
+
+        .info-box strong { color: var(--primary); }
+
         @media (max-width: 600px) {
-            .flex-row { flex-direction: column; }
+            .flex-row, .info-grid { flex-direction: column; grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -131,79 +133,63 @@
 
 <header>
     <h1>مركز طب الأسنان المعتمد</h1>
-    <p>أحدث الأجهزة العالمية.. بأسعار ولاد البلد</p>
-    <div class="promo-banner">🎁 عرض خاص: كشف وتلميع وجير بـ 250 جنيه بس!</div>
+    <p>نظام الحجز الإلكتروني المتطور</p>
 </header>
 
 <div class="container">
     
-    <div class="features">
-        <div class="feature-box">🦷 تعقيم شامل بأحدث الأجهزة</div>
-        <div class="feature-box">💰 أسعار تناسب الجميع</div>
-        <div class="feature-box">👨‍⚕️ نخبة من أمهر الأطباء</div>
-        <div class="feature-box">📜 ضمان على جميع الحشوات</div>
-    </div>
-
     <div class="card">
-        <h2>قائمة الخدمات والأسعار</h2>
-        <div class="price-item">
-            <span class="price-name">حشو عصب (بأحدث الأجهزة)</span>
-            <span class="price-value">800 ج.م</span>
-        </div>
-        <div class="price-item">
-            <span class="price-name">حشو عادي (تجميلي ليزر)</span>
-            <span class="price-value">350 ج.م</span>
-        </div>
-        <div class="price-item">
-            <span class="price-name">تقويم أسنان (قسط شهري)</span>
-            <span class="price-value">يبدأ من 500ج</span>
-        </div>
-        <div class="price-item">
-            <span class="price-name">إصلاح وخلع الأسنان</span>
-            <span class="price-value">200 ج.م</span>
-        </div>
+        <h2>الخدمات والاسعار موجودة في العيادة</h2>
+        <div class="price-item"><span>حشو عصب بأحدث الأجهزة</span><strong>800 ج.م</strong></div>
+        <div class="price-item"><span>حشو عادي تجميلي ليزر</span><strong>350 ج.م</strong></div>
+        <div class="price-item"><span>تقويم الأسنان (نظام التقسيط)</span><strong>من 500ج</strong></div>
+        <div class="price-item"><span>إصلاح وخلع الأسنان</span><strong>200 ج.م</strong></div>
     </div>
 
     <div class="card booking-form">
-        <h2>احجز مكانك في الدور</h2>
-        <label>الاسم:</label>
-        <input type="text" id="custName" placeholder="اكتب اسمك بالكامل">
+        <h2>طلب حجز دور</h2>
+        <label>الاسم الثلاثي (باللغة العربية فقط):</label>
+        <input type="text" id="custName" placeholder="مثال: محمد أحمد علي" oninput="validateArabic(this)">
         
-        <div style="display: flex; gap: 10px;" class="flex-row">
+        <div style="display: flex; gap: 15px;" class="flex-row">
             <div style="flex: 1;">
-                <label>اليوم:</label>
-                <input type="date" id="custDate" onchange="validateDay(this)">
+                <label>تاريخ الحجز:</label>
+                <input type="date" id="custDate" onchange="checkThursday(this)">
             </div>
             <div style="flex: 1;">
-                <label>الساعة:</label>
+                <label>وقت الحضور:</label>
                 <select id="custTime">
-                    <option value="">اختر ميعاد</option>
-                    <option value="09:00 صباحاً">09:00 ص</option>
-                    <option value="10:00 صباحاً">10:00 ص</option>
-                    <option value="11:00 صباحاً">11:00 ص</option>
-                    <option value="12:00 ظهراً">12:00 ظ</option>
-                    <option value="01:00 ظهراً">01:00 ظ</option>
-                    <option value="02:00 ظهراً">02:00 ظ</option>
-                    <option value="03:00 عصراً">03:00 ع</option>
-                    <option value="04:00 عصراً">04:00 ع</option>
-                    <option value="05:00 مساءً">05:00 م</option>
-                    <option value="06:00 مساءً">06:00 م</option>
-                    <option value="07:00 مساءً">07:00 م</option>
-                    <option value="08:00 مساءً">08:00 م</option>
+                    <option value="">-- اختر ميعاد --</option>
+                    <script>
+                        const tms = ["09:00 ص", "10:00 ص", "11:00 ص", "12:00 ظ", "01:00 ظ", "02:00 ظ", "03:00 ع", "04:00 ع", "05:00 م", "06:00 م", "07:00 م", "08:00 م"];
+                        tms.forEach(t => document.write(`<option value="${t}">${t}</option>`));
+                    </script>
                 </select>
             </div>
         </div>
         
-        <button class="btn-confirm" onclick="makeTicket()">تأكيد الحجز واستلام التذكرة</button>
+        <button class="btn-confirm" onclick="generateQueue()">إصدار تذكرة الدور</button>
     </div>
 
     <div id="ticket">
-        <h3 style="color: var(--primary);">تذكرة حجز مركز المعتمد</h3>
-        <hr style="border: 0; border-top: 1px solid #eee;">
-        <p>الأستاذ/ة: <strong id="resName" style="font-size: 1.2rem;"></strong></p>
-        <p>موعدك يوم <strong id="resDate"></strong> الساعة <strong id="resTime"></strong></p>
-        <p style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9rem;">📍 العنوان: بجوار المسجد الكبير - الدور الأول</p>
-        <p style="color: #d9534f; font-weight: bold;">📸 خذ لقطة شاشة (Screenshot) للتأكيد</p>
+        <h3 style="color: var(--primary);">تذكرة مراجعة العيادة</h3>
+        <p>رقم الدور</p>
+        <span class="queue-number" id="resQueue">A-0</span>
+        <p>الاسم: <strong id="resName"></strong></p>
+        <p>الموعد: <strong id="resDay"></strong> - <strong id="resDate"></strong></p>
+        <p>الساعة: <strong id="resTime"></strong></p>
+        <p style="color: #d9534f; font-weight: bold; margin-top:15px;">📸 يرجى تصوير الرقم وتقديمه للسكرتارية</p>
+    </div>
+
+    <div class="doctor-info">
+        <h2>بيانات الطبيب والعيادة</h2>
+        <div class="info-grid">
+            <div class="info-box"><strong>اسم الطبيب:</strong> د. عبد الله إكرام</div>
+            <div class="info-box"><strong>رقم التواصل:</strong> 01XXXXXXXXX</div>
+            <div class="info-box"><strong>عنوان العيادة:</strong> بجوار المسجد الكبير - الدور الأول</div>
+            <div class="info-box"><strong>أيام العمل:</strong> من السبت إلى الأربعاء (الخميس والجمعة إجازة)</div>
+            <div class="info-box"><strong>ساعات العمل:</strong> من 09:00 صباحاً حتى 08:00 مساءً</div>
+        </div>
     </div>
 
 </div>
@@ -213,29 +199,54 @@
     dt.setDate(dt.getDate() + 1);
     document.getElementById('custDate').min = dt.toISOString().split("T")[0];
 
-    function validateDay(input) {
+    const daysAr = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس", "الجمعة", "السبت"];
+
+    function validateArabic(input) {
+        const arabicPattern = /^[\u0600-\u06FF\s]*$/;
+        if (!arabicPattern.test(input.value)) {
+            alert("يرجى الكتابة باللغة العربية فقط");
+            input.value = input.value.replace(/[^\u0600-\u06FF\s]/g, "");
+        }
+    }
+
+    function checkThursday(input) {
         const d = new Date(input.value);
-        if(d.getUTCDay() === 4) {
-            alert("العيادة إجازة يوم الخميس.. اختار يوم تاني تنورنا فيه");
+        if(d.getUTCDay() === 4 || d.getUTCDay() === 5) {
+            alert("العيادة مغلقة يومي الخميس والجمعة، يرجى اختيار يوم آخر.");
             input.value = "";
         }
     }
 
-    function makeTicket() {
-        const name = document.getElementById('custName').value;
-        const date = document.getElementById('custDate').value;
+    function generateQueue() {
+        const name = document.getElementById('custName').value.trim();
+        const dateVal = document.getElementById('custDate').value;
         const time = document.getElementById('custTime').value;
 
-        if(name && date && time) {
+        const nameParts = name.split(/\s+/);
+        if (nameParts.length < 3) {
+            alert("يرجى كتابة الاسم ثلاثياً باللغة العربية.");
+            return;
+        }
+
+        if(name && dateVal && time) {
+            const d = new Date(dateVal);
+            const dayName = daysAr[d.getDay()];
+
+            let lastNum = localStorage.getItem('clinic_queue_last') || 0;
+            let nextNum = parseInt(lastNum) + 1;
+            localStorage.setItem('clinic_queue_last', nextNum);
+
             document.getElementById('resName').innerText = name;
-            document.getElementById('resDate').innerText = date;
+            document.getElementById('resDay').innerText = dayName;
+            document.getElementById('resDate').innerText = dateVal;
             document.getElementById('resTime').innerText = time;
-            
+            document.getElementById('resQueue').innerText = "A-" + nextNum;
+
             const t = document.getElementById('ticket');
             t.style.display = 'block';
             t.scrollIntoView({behavior: 'smooth'});
         } else {
-            alert("برجاء إكمال البيانات");
+            alert("يرجى إكمال كافة بيانات الحجز");
         }
     }
 </script>
