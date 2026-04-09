@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز طب الأسنان المعتمد</title>
+    <style>
+        :root {
+            --primary-blue: #00509d;
+            --accent-blue: #00b4d8;
+            --bg-light: #f8fbff;
+            --white: #ffffff;
+            --text-main: #253238;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            clip-path: ellipse(100% 80% at 50% 20%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* جدول الخدمات المطور */
+        .price-list {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .price-list th {
+            text-align: right;
+            padding: 15px;
+            background: #f1f7ff;
+            color: var(--primary-blue);
+            border-radius: 10px;
+        }
+
+        .price-list td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .price-list tr:last-child td { border: none; }
+
+        .price-tag {
+            background: #e3f2fd;
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* فورم الحجز */
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+        
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #eef2f6;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--accent-blue);
+            outline: none;
+            background: #fff;
+        }
+
+        .btn-book {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-book:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        /* التذكرة الاحترافية */
+        #ticket {
+            display: none;
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            border-top: 12px solid var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            text-align: center;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .ticket-title { font-size: 22px; font-weight: bold; color: #2ecc71; margin-bottom: 20px; }
+        
+        .ticket-data {
+            background: #f9fbff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-right: 5px solid var(--accent-blue);
+            text-align: right;
+        }
+
+        .note { color: #888; font-size: 13px; margin-top: 15px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .flex-mobile { flex-direction: column; }
+            .container { margin-top: -30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 style="margin:0; font-size: 32px;">مركز طب الأسنان المعتمد</h1>
+    <p style="opacity: 0.9;">رعاية طبية متكاملة لابتسامة تدوم</p>
+</header>
+
+<div class="container">
+    
+    <div class="card">
+        <h2>خدماتنا والأسعار</h2>
+        <table class="price-list">
+            <thead>
+                <tr>
+                    <th>نوع الخدمة</th>
+                    <th style="text-align: center;">السعر التقريبي</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>حشو عصب (Rotary System)</td><td align="center"><span class="price-tag">850 ج.م</span></td></tr>
+                <tr><td>حشو عادي (Composite)</td><td align="center"><span class="price-tag">400 ج.م</span></td></tr>
+                <tr><td>تقويم الأسنان (معدني/شفاف)</td><td align="center"><span class="price-tag">يبدأ من 5000 ج.م</span></td></tr>
+                <tr><td>إصلاح وتجميل الأسنان</td><td align="center"><span class="price-tag">600 ج.م</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>حجز موعد جديد</h2>
+        <div class="form-group">
+            <label>الاسم الثلاثي:</label>
+            <input type="text" id="nameInput" placeholder="أدخل اسمك بالكامل">
+        </div>
+        
+        <div style="display: flex; gap: 15px;" class="flex-mobile">
+            <div class="form-group" style="flex:1;">
+                <label>تاريخ الحجز:</label>
+                <input type="date" id="dateInput" onchange="validateDate(this)">
+            </div>
+            <div class="form-group" style="flex:1;">
+                <label>وقت الحضور:</label>
+                <select id="timeInput">
+                    <option value="">اختر وقت مناسب</option>
+                    <option value="09:00 صباحاً">09:00 صباحاً</option>
+                    <option value="10:00 صباحاً">10:00 صباحاً</option>
+                    <option value="11:00 صباحاً">11:00 صباحاً</option>
+                    <option value="12:00 ظهراً">12:00 ظهراً</option>
+                    <option value="01:00 ظهراً">01:00 ظهراً</option>
+                    <option value="02:00 ظهراً">02:00 ظهراً</option>
+                    <option value="03:00 عصرًا">03:00 عصرًا</option>
+                    <option value="04:00 عصرًا">04:00 عصرًا</option>
+                    <option value="05:00 مساءً">05:00 مساءً</option>
+                    <option value="06:00 مساءً">06:00 مساءً</option>
+                    <option value="07:00 مساءً">07:00 مساءً</option>
+                    <option value="08:00 مساءً">08:00 مساءً</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn-book" onclick="confirmBooking()">تأكيد الحجز الآن</button>
+    </div>
+
+    <div id="ticket">
+        <div class="ticket-title">تم تسجيل طلبك بنجاح!</div>
+        <div class="ticket-data"><strong>الاسم:</strong> <span id="resName"></span></div>
+        <div class="ticket-data"><strong>التاريخ:</strong> <span id="resDate"></span></div>
+        <div class="ticket-data"><strong>الموعد:</strong> <span id="resTime"></span></div>
+        <p style="font-weight: bold; color: var(--primary-blue);">مركز طب الأسنان المعتمد - فرع مصر</p>
+        <p class="note">⚠️ برجاء أخذ لقطة شاشة (Screenshot) للتذكرة لإظهارها لموظف الاستقبال.</p>
+    </div>
+
+</div>
+
+<script>
+    // تحديد التاريخ بحد أدنى غداً
+    const today = new Date();
+    today.setDate(today.getDate() + 1);
+    document.getElementById('dateInput').min = today.toISOString().split("T")[0];
+
+    function validateDate(el) {
+        const d = new Date(el.value);
+        if (d.getUTCDay() === 4) { // منع الخميس
+            alert("عذراً، يوم الخميس هو الإجازة الأسبوعية للمركز.");
+            el.value = "";
+        }
+    }
+
+    function confirmBooking() {
+        const n = document.getElementById('nameInput').value;
+        const d = document.getElementById('dateInput').value;
+        const t = document.getElementById('timeInput').value;
+
+        if(n && d && t) {
+            document.getElementById('resName').innerText = n;
+            document.getElementById('resDate').innerText = d;
+            document.getElementById('resTime').innerText = t;
+            
+            const ticket = document.getElementById('ticket');
+            ticket.style.display = 'block';
+            ticket.scrollIntoView({behavior: 'smooth'});
+        } else {
+            alert("يرجى التأكد من كتابة الاسم واختيار التاريخ والوقت.");
+        }
+    }
+</script>
+
+</body>
+</html>
