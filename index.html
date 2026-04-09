@@ -6,257 +6,236 @@
     <title>مركز طب الأسنان المعتمد</title>
     <style>
         :root {
-            --primary-blue: #00509d;
-            --accent-blue: #00b4d8;
-            --bg-light: #f8fbff;
+            --primary: #0056b3;
+            --secondary: #00a8e8;
+            --accent: #ffcc00;
             --white: #ffffff;
-            --text-main: #253238;
+            --bg: #f4f7f6;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--bg);
             margin: 0;
             padding: 0;
-            color: var(--text-main);
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            background: linear-gradient(rgba(0,86,179,0.9), rgba(0,86,179,0.9)), url('https://via.placeholder.com/1200x400');
             color: white;
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
-            clip-path: ellipse(100% 80% at 50% 20%);
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .promo-banner {
+            background: var(--accent);
+            color: #333;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 15px;
+            border-radius: 5px;
         }
 
         .container {
             max-width: 900px;
-            margin: -50px auto 50px;
-            padding: 0 20px;
+            margin: 30px auto;
+            padding: 0 15px;
         }
 
         .card {
             background: var(--white);
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: var(--primary-blue);
-            text-align: center;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             margin-bottom: 25px;
-            font-size: 24px;
         }
 
-        /* جدول الخدمات المطور */
-        .price-list {
-            width: 100%;
-            border-collapse: collapse;
+        h2 { 
+            color: var(--primary); 
+            border-right: 5px solid var(--secondary); 
+            padding-right: 15px; 
         }
 
-        .price-list th {
-            text-align: right;
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .price-name { font-weight: bold; font-size: 1.1rem; }
+        .price-value { color: var(--primary); font-weight: 900; font-size: 1.2rem; }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: #eef9ff;
             padding: 15px;
-            background: #f1f7ff;
-            color: var(--primary-blue);
             border-radius: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            border: 1px solid #d0e8f2;
         }
 
-        .price-list td {
-            padding: 18px 15px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .price-list tr:last-child td { border: none; }
-
-        .price-tag {
-            background: #e3f2fd;
-            color: var(--primary-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        /* فورم الحجز */
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
-        
-        input, select {
+        .booking-form input, .booking-form select {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #eef2f6;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: 0.3s;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
             box-sizing: border-box;
         }
 
-        input:focus, select:focus {
-            border-color: var(--accent-blue);
-            outline: none;
-            background: #fff;
-        }
-
-        .btn-book {
-            background: var(--primary-blue);
+        .btn-confirm {
+            background: #28a745;
             color: white;
             border: none;
-            padding: 16px;
-            border-radius: 12px;
+            padding: 15px;
             width: 100%;
-            font-size: 18px;
+            border-radius: 8px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            margin-top: 10px;
         }
 
-        .btn-book:hover {
-            background: var(--accent-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
-        }
+        .btn-confirm:hover { background: #218838; }
 
-        /* التذكرة الاحترافية */
         #ticket {
             display: none;
             background: #fff;
-            border-radius: 25px;
-            padding: 40px;
-            border-top: 12px solid var(--primary-blue);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-            text-align: center;
-            animation: fadeIn 0.6s ease;
-        }
-
-        .ticket-title { font-size: 22px; font-weight: bold; color: #2ecc71; margin-bottom: 20px; }
-        
-        .ticket-data {
-            background: #f9fbff;
-            padding: 20px;
+            border: 2px solid var(--primary);
             border-radius: 15px;
-            margin-bottom: 15px;
-            border-right: 5px solid var(--accent-blue);
-            text-align: right;
-        }
-
-        .note { color: #888; font-size: 13px; margin-top: 15px; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
         }
 
         @media (max-width: 600px) {
-            .flex-mobile { flex-direction: column; }
-            .container { margin-top: -30px; }
+            .flex-row { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 style="margin:0; font-size: 32px;">مركز طب الأسنان المعتمد</h1>
-    <p style="opacity: 0.9;">رعاية طبية متكاملة لابتسامة تدوم</p>
+    <h1>مركز طب الأسنان المعتمد</h1>
+    <p>أحدث الأجهزة العالمية.. بأسعار ولاد البلد</p>
+    <div class="promo-banner">🎁 عرض خاص: كشف وتلميع وجير بـ 250 جنيه بس!</div>
 </header>
 
 <div class="container">
     
-    <div class="card">
-        <h2>خدماتنا والأسعار</h2>
-        <table class="price-list">
-            <thead>
-                <tr>
-                    <th>نوع الخدمة</th>
-                    <th style="text-align: center;">السعر التقريبي</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>حشو عصب (Rotary System)</td><td align="center"><span class="price-tag">850 ج.م</span></td></tr>
-                <tr><td>حشو عادي (Composite)</td><td align="center"><span class="price-tag">400 ج.م</span></td></tr>
-                <tr><td>تقويم الأسنان (معدني/شفاف)</td><td align="center"><span class="price-tag">يبدأ من 5000 ج.م</span></td></tr>
-                <tr><td>إصلاح وتجميل الأسنان</td><td align="center"><span class="price-tag">600 ج.م</span></td></tr>
-            </tbody>
-        </table>
+    <div class="features">
+        <div class="feature-box">🦷 تعقيم شامل بأحدث الأجهزة</div>
+        <div class="feature-box">💰 أسعار تناسب الجميع</div>
+        <div class="feature-box">👨‍⚕️ نخبة من أمهر الأطباء</div>
+        <div class="feature-box">📜 ضمان على جميع الحشوات</div>
     </div>
 
     <div class="card">
-        <h2>حجز موعد جديد</h2>
-        <div class="form-group">
-            <label>الاسم الثلاثي:</label>
-            <input type="text" id="nameInput" placeholder="أدخل اسمك بالكامل">
+        <h2>قائمة الخدمات والأسعار</h2>
+        <div class="price-item">
+            <span class="price-name">حشو عصب (بأحدث الأجهزة)</span>
+            <span class="price-value">800 ج.م</span>
         </div>
+        <div class="price-item">
+            <span class="price-name">حشو عادي (تجميلي ليزر)</span>
+            <span class="price-value">350 ج.م</span>
+        </div>
+        <div class="price-item">
+            <span class="price-name">تقويم أسنان (قسط شهري)</span>
+            <span class="price-value">يبدأ من 500ج</span>
+        </div>
+        <div class="price-item">
+            <span class="price-name">إصلاح وخلع الأسنان</span>
+            <span class="price-value">200 ج.م</span>
+        </div>
+    </div>
+
+    <div class="card booking-form">
+        <h2>احجز مكانك في الدور</h2>
+        <label>الاسم:</label>
+        <input type="text" id="custName" placeholder="اكتب اسمك بالكامل">
         
-        <div style="display: flex; gap: 15px;" class="flex-mobile">
-            <div class="form-group" style="flex:1;">
-                <label>تاريخ الحجز:</label>
-                <input type="date" id="dateInput" onchange="validateDate(this)">
+        <div style="display: flex; gap: 10px;" class="flex-row">
+            <div style="flex: 1;">
+                <label>اليوم:</label>
+                <input type="date" id="custDate" onchange="validateDay(this)">
             </div>
-            <div class="form-group" style="flex:1;">
-                <label>وقت الحضور:</label>
-                <select id="timeInput">
-                    <option value="">اختر وقت مناسب</option>
-                    <option value="09:00 صباحاً">09:00 صباحاً</option>
-                    <option value="10:00 صباحاً">10:00 صباحاً</option>
-                    <option value="11:00 صباحاً">11:00 صباحاً</option>
-                    <option value="12:00 ظهراً">12:00 ظهراً</option>
-                    <option value="01:00 ظهراً">01:00 ظهراً</option>
-                    <option value="02:00 ظهراً">02:00 ظهراً</option>
-                    <option value="03:00 عصرًا">03:00 عصرًا</option>
-                    <option value="04:00 عصرًا">04:00 عصرًا</option>
-                    <option value="05:00 مساءً">05:00 مساءً</option>
-                    <option value="06:00 مساءً">06:00 مساءً</option>
-                    <option value="07:00 مساءً">07:00 مساءً</option>
-                    <option value="08:00 مساءً">08:00 مساءً</option>
+            <div style="flex: 1;">
+                <label>الساعة:</label>
+                <select id="custTime">
+                    <option value="">اختر ميعاد</option>
+                    <option value="09:00 صباحاً">09:00 ص</option>
+                    <option value="10:00 صباحاً">10:00 ص</option>
+                    <option value="11:00 صباحاً">11:00 ص</option>
+                    <option value="12:00 ظهراً">12:00 ظ</option>
+                    <option value="01:00 ظهراً">01:00 ظ</option>
+                    <option value="02:00 ظهراً">02:00 ظ</option>
+                    <option value="03:00 عصراً">03:00 ع</option>
+                    <option value="04:00 عصراً">04:00 ع</option>
+                    <option value="05:00 مساءً">05:00 م</option>
+                    <option value="06:00 مساءً">06:00 م</option>
+                    <option value="07:00 مساءً">07:00 م</option>
+                    <option value="08:00 مساءً">08:00 م</option>
                 </select>
             </div>
         </div>
-        <button class="btn-book" onclick="confirmBooking()">تأكيد الحجز الآن</button>
+        
+        <button class="btn-confirm" onclick="makeTicket()">تأكيد الحجز واستلام التذكرة</button>
     </div>
 
     <div id="ticket">
-        <div class="ticket-title">تم تسجيل طلبك بنجاح!</div>
-        <div class="ticket-data"><strong>الاسم:</strong> <span id="resName"></span></div>
-        <div class="ticket-data"><strong>التاريخ:</strong> <span id="resDate"></span></div>
-        <div class="ticket-data"><strong>الموعد:</strong> <span id="resTime"></span></div>
-        <p style="font-weight: bold; color: var(--primary-blue);">مركز طب الأسنان المعتمد - فرع مصر</p>
-        <p class="note">⚠️ برجاء أخذ لقطة شاشة (Screenshot) للتذكرة لإظهارها لموظف الاستقبال.</p>
+        <h3 style="color: var(--primary);">تذكرة حجز مركز المعتمد</h3>
+        <hr style="border: 0; border-top: 1px solid #eee;">
+        <p>الأستاذ/ة: <strong id="resName" style="font-size: 1.2rem;"></strong></p>
+        <p>موعدك يوم <strong id="resDate"></strong> الساعة <strong id="resTime"></strong></p>
+        <p style="background: #fff3cd; padding: 10px; border-radius: 5px; font-size: 0.9rem;">📍 العنوان: بجوار المسجد الكبير - الدور الأول</p>
+        <p style="color: #d9534f; font-weight: bold;">📸 خذ لقطة شاشة (Screenshot) للتأكيد</p>
     </div>
 
 </div>
 
 <script>
-    // تحديد التاريخ بحد أدنى غداً
-    const today = new Date();
-    today.setDate(today.getDate() + 1);
-    document.getElementById('dateInput').min = today.toISOString().split("T")[0];
+    const dt = new Date();
+    dt.setDate(dt.getDate() + 1);
+    document.getElementById('custDate').min = dt.toISOString().split("T")[0];
 
-    function validateDate(el) {
-        const d = new Date(el.value);
-        if (d.getUTCDay() === 4) { // منع الخميس
-            alert("عذراً، يوم الخميس هو الإجازة الأسبوعية للمركز.");
-            el.value = "";
+    function validateDay(input) {
+        const d = new Date(input.value);
+        if(d.getUTCDay() === 4) {
+            alert("العيادة إجازة يوم الخميس.. اختار يوم تاني تنورنا فيه");
+            input.value = "";
         }
     }
 
-    function confirmBooking() {
-        const n = document.getElementById('nameInput').value;
-        const d = document.getElementById('dateInput').value;
-        const t = document.getElementById('timeInput').value;
+    function makeTicket() {
+        const name = document.getElementById('custName').value;
+        const date = document.getElementById('custDate').value;
+        const time = document.getElementById('custTime').value;
 
-        if(n && d && t) {
-            document.getElementById('resName').innerText = n;
-            document.getElementById('resDate').innerText = d;
-            document.getElementById('resTime').innerText = t;
+        if(name && date && time) {
+            document.getElementById('resName').innerText = name;
+            document.getElementById('resDate').innerText = date;
+            document.getElementById('resTime').innerText = time;
             
-            const ticket = document.getElementById('ticket');
-            ticket.style.display = 'block';
-            ticket.scrollIntoView({behavior: 'smooth'});
+            const t = document.getElementById('ticket');
+            t.style.display = 'block';
+            t.scrollIntoView({behavior: 'smooth'});
         } else {
-            alert("يرجى التأكد من كتابة الاسم واختيار التاريخ والوقت.");
+            alert("برجاء إكمال البيانات");
         }
     }
 </script>
